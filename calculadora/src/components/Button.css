@@ -1,0 +1,16 @@
+:root {
+    --bg-button: #ffff;
+    --border-button: solid 1px #888;
+}
+.button {
+    font-size: 1.4em;
+    background-color: var(--bg-button);
+    border: none;
+    border-right: var(--border-button);
+    border-bottom: var(--border-button);
+    margin: 2px;
+    border-radius: 5px;
+    outline: none; /*para tirar a borda azul qndo selecionar o botao*/
+
+
+}
