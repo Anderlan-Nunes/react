@@ -5,6 +5,8 @@
     overflow: hidden; /* tudo q tiver alem da calculador vai ficar invisivel*/
     display: grid;
     grid-template-columns: repeat(4, 25%);/* dividindo em 4 colunas e cada coluna ocupa 25% do espaco*/
-    grid-template-rows: 50px 50px 50px 50px 50px;/* cada uma das 5 linhas possui 50px de altura*/
+    grid-template-rows: 1fr 50px 50px 50px 50px 50px;/* cada uma das 5 linhas possui 50px de altura*/
     
 }
+
+/*1fr um fragmento porque ele vai pegar o restante disponivel na tela*/
