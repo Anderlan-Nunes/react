@@ -12,5 +12,33 @@
     border-radius: 5px;
     outline: none; /*para tirar a borda azul qndo selecionar o botao*/
 
+}
+
+.button:hover {
+    background-color: #ccccccc5;
+}
+.button:active {
+    background-color: #ccc;
 
 }
+
+.button.double {
+    grid-column: span 2;
+}
+.button.triple {
+    grid-column: span 3;
+}
+
+
+.button.operation {
+    background-color: #fa8131;
+    color: #fff;
+}
+.button.operation:hover {
+    background-color: #fa8131cc;
+}
+.button.operation:active {
+    background-color: #fa8131;
+}
+
+
