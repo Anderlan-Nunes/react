@@ -8,12 +8,21 @@ const UseRef = (props) => {
     const [value2, setValue2] = useState("")
     const count = useRef(0)
     const count2 = useRef(0)
-
+    const myInput1 = useRef(null)
+    const myInput2 = useRef(null)
+    
     useEffect(function () {
         count2.current = count2.current + 1
-    }, [value1, value2])
+        myInput2.current.focus()
+    }, [value1])
+
+    useEffect(function () {
+        count2.current++
+        myInput1.current.focus()
+    }, [value2])
 
     count.current = count.current + 1
+
 
     return (
         <div className="UseRef">
@@ -37,6 +46,7 @@ const UseRef = (props) => {
                 </div>
                 <input
                     type="text" className="input"
+                    ref={myInput1}
                     value={value1}
                     onChange={e => setValue1(e.target.value)}
                 />
@@ -45,6 +55,7 @@ const UseRef = (props) => {
             <div className="center">
                 <input
                     type="text" className="input"
+                    ref = {myInput2}
                     value={value2}
                     onChange={e => setValue2(e.target.value)}
                 />
