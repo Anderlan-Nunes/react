@@ -2,6 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
 import SectionTitle from '../../components/layout/SectionTitle'
 
+const merge = function(s1, s2) {
+    return [...s1].map(function(e, i){
+        return `${e}${s2[i] || ""}`
+    }).join("")
+}
 const UseRef = (props) => {
 
     const [value1, setValue1] = useState("")
@@ -40,7 +45,7 @@ const UseRef = (props) => {
                 </div>
                 <div>
                     <span className="text">Valor2: </span>
-                    <span className="text">{value1} [</span>
+                    <span className="text">{merge(value1, value2)} [</span>
                     <span className="text red">{count2.current}</span>
                     <span className="text">]</span>
                 </div>
