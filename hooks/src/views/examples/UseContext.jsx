@@ -1,6 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
+import SectionTitle from '../../components/layout/SectionTitle'
 import DataContext from '../../data/DataContenxt'
+import { AppContext } from '../../data/Store'
 
 const UseContext = (props) => {
 
@@ -12,6 +14,14 @@ const UseContext = (props) => {
             number: context.state.number + delta  // ele vai replicar todos os atributo do estado e só 
         })
     }
+
+    const {number, text, setNumber, setText} = useContext(AppContext) // importando do Store.jsx
+
+    useEffect(function(){
+        if(number > 1250) {
+            setText('passou de 1250!!!!')
+        }
+    },[number])
     
     return (
         <div className="UseContext">
@@ -19,6 +29,8 @@ const UseContext = (props) => {
                 title="Hook UseContext"
                 subtitle="Aceita um objeto de contexto (DataContext = React.createContext(data)) e retorna o valor atual do contexto!"
             />
+
+            <SectionTitle title = "Exercício #01" />
             <div className="center">
                 <span className="text">{context.state.text}</span>
                 <span className="text">{context.state.number}</span>
@@ -29,6 +41,24 @@ const UseContext = (props) => {
                                         <button className="btn"
                         onClick={() => addNumber(-1)}
                     >-1</button>
+                </div>
+            </div>
+
+            <SectionTitle title = "Exercício #02 com Encapsulamento Store" />
+            <div className="center">
+                <span className="text">{number}</span>
+                <span className="text">{text}</span>
+                <div>
+                    <button 
+                        className="btn"
+                        onClick={()=> setNumber(number -1)}>
+                        -1
+                    </button>
+                    <button 
+                        className="btn"
+                        onClick={()=> setNumber(number +1)}>
+                        +1
+                    </button>
                 </div>
             </div>
         </div>
