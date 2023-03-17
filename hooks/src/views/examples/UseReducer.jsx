@@ -1,24 +1,8 @@
 import React, { useReducer } from 'react'
+
 import PageTitle from '../../components/layout/PageTitle'
-
-// criando um estado inicial
-const initialState  = {
-    cart: [],
-    products: null,
-    user: null,
-    number: 0
-}
-
-function reducer(state, action ) {
-    switch (action.type) { // toda action tem pelo mes o atributo type q é o q vai dizer q vai ser feito nessa açao
-        case 'number_add2': return { ...state, number: state.number + 2 }
-        case 'login' :
-            return { ...state, user: { name: 'Patricia' } }
-        case 'product' :
-            return { ...state, products: action.payload }
-        default: return state // caso nao seja um acão mapeada(action.type) ele retornar estado atual
-    }
-}
+import { initialState, reducer } from '../../store'
+import { numberAdd2, login } from '../../store/actions'
 
 const UseReducer = (props) => {
 
@@ -38,22 +22,37 @@ const UseReducer = (props) => {
                     <span className="text">Sem Usuário</span>
                 )}
                 <span className="text">{state.number}</span>
-                {state.products ? (
-                    <span className="text">{state.products}</span>
+                {state.apelido ? (
+                    <span className="text">{state.apelido}</span>
                 ) : (
-                    <span className="text">Sem Produtos</span>
+                    <span className="text">Sem ....</span>
                 )}
                 <div>
                     <button className="btn"
-                        onClick={() => dispatch({ type: 'login' })}
+                        onClick={() => login(dispatch, 'Patricia')}
                     >Login</button>
 
                     <button className="btn"
-                        onClick={() => dispatch({ type: 'number_add2' })}
+                        onClick={() => numberAdd2(dispatch)}
                     >+2</button>
                     <button className="btn"
-                        onClick={() => dispatch({ type: 'product', payload: 'Tsunade' })}
-                    >product</button>
+                        onClick={() => dispatch({ type: 'apelidos', payload: 'Tsunade' })}
+                    >ap leu</button>
+                    <button className="btn"
+                        onClick={() => dispatch({ type: 'numberMulti7' })}
+                    >*7</button>
+                    <button className="btn"
+                        onClick={() => dispatch({ type: 'numberDiv25' })}
+                    >/25</button>
+                    <button className="btn"
+                        onClick={() => dispatch({ type: 'numberInt' })}
+                    >Int</button>
+                    <button className="btn"
+                        onClick={() => dispatch({ type: 'numberAddN', payload: -10 })}
+                    >-10</button>
+                    <button className="btn"
+                        onClick={() => dispatch({ type: 'numberAddN', payload: 10 })}
+                    >+10</button>
                 </div>
             </div>
         </div>
