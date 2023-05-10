@@ -1,7 +1,9 @@
+import PageHeader from "./pageHeader"
+
 export default props => {
     return(
         <div>
-            <h1>Home</h1>
+            <PageHeader name='tarefas' small='cadastro'/>
         </div>
     )
 }
