@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const Media =  props => {
      const {min, max} = props 
-    console.log("os numeros", min, "vM", max)
+    console.log(min)
     return (
         <Card title='Média dos Números' blue>
             <div>
@@ -20,8 +20,8 @@ function mapStateToProps(state) {
     return {
         min: state.numeros.min,
         max: state.numeros.max,
-
+ 
     }
 }
 
-export default connect()(Media)
+export default connect(mapStateToProps)(Media)

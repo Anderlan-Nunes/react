@@ -8,14 +8,16 @@ export default props => {
                 <div className="Intervalo">
                     <span>
                         <strong>Mínino:</strong>
-                        <input type="number" value={min}
-                            onChange= {e=> props.onMinChanged(+e.target.value)}/>
+                        {/* <input type="number" value={min}
+                            onChange= {e=> props.onMinChanged(+e.target.value)}/> */}
+                        <input type="number" value={min}/>
                     </span>
                     <span>
                         <strong>Máximo:</strong>
-                        <input type="number" value={max} 
+                        {/* <input type="number" value={max} 
                             onChange={e=> props.onMaxChanged(+e.target.value)}
-                        />
+                        /> */}
+                        /* <input type="number" value={max} />
                     </span>
                 </div>
             </Card>

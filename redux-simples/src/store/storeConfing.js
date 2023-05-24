@@ -5,8 +5,8 @@ const reducers = combineReducers({
     numeros: function(state, action) {
         console.log(state, ' ', action) // pra enter qndo ele chamou essas funcoes
         return {
-            min: 10,
-            max: 100
+            min: 7,
+            max: 200
         }
     },
 
